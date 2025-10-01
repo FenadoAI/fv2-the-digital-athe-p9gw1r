@@ -60,20 +60,20 @@ const BookDetail = ({ book, open, onOpenChange, onBookmarkToggle }) => {
 
   return (
     <Dialog open={open} onOpenChange={onOpenChange}>
-      <DialogContent className="max-w-3xl max-h-[90vh] bg-gradient-to-br from-amber-50 to-stone-100 border-2 border-amber-300">
+      <DialogContent className="max-w-3xl max-h-[90vh] bg-gradient-to-br from-cyan-50 to-blue-100 border-2 border-cyan-400">
         <DialogHeader>
           <div className="flex items-start justify-between gap-4">
             <div className="flex-grow">
-              <DialogTitle className="text-2xl font-serif text-amber-950 leading-tight pr-8">
+              <DialogTitle className="text-2xl font-serif text-cyan-950 leading-tight pr-8">
                 {book.title}
               </DialogTitle>
-              <DialogDescription className="text-amber-800 mt-2">
+              <DialogDescription className="text-cyan-800 mt-2">
                 {getAuthorInfo().map((author, idx) => (
                   <div key={idx} className="flex items-center gap-2 mt-1">
                     <User className="h-4 w-4" />
                     <span className="font-medium">{author.name}</span>
                     {(author.birth_year || author.death_year) && (
-                      <span className="text-sm text-amber-700">
+                      <span className="text-sm text-cyan-700">
                         ({author.birth_year || '?'} - {author.death_year || '?'})
                       </span>
                     )}
@@ -85,7 +85,7 @@ const BookDetail = ({ book, open, onOpenChange, onBookmarkToggle }) => {
               variant={bookmarked ? "default" : "outline"}
               size="icon"
               onClick={handleBookmarkClick}
-              className={bookmarked ? "bg-amber-700 hover:bg-amber-800" : "border-amber-700 text-amber-700 hover:bg-amber-100"}
+              className={bookmarked ? "bg-cyan-600 hover:bg-cyan-700" : "border-cyan-600 text-cyan-700 hover:bg-cyan-100"}
             >
               {bookmarked ? (
                 <BookmarkCheck className="h-5 w-5" />
@@ -99,7 +99,7 @@ const BookDetail = ({ book, open, onOpenChange, onBookmarkToggle }) => {
         <ScrollArea className="max-h-[60vh] pr-4">
           <div className="space-y-6">
             {/* Book Info */}
-            <div className="flex flex-wrap gap-4 text-sm text-amber-800">
+            <div className="flex flex-wrap gap-4 text-sm text-cyan-800">
               {book.languages && book.languages.length > 0 && (
                 <div className="flex items-center gap-2">
                   <Languages className="h-4 w-4" />
@@ -117,18 +117,18 @@ const BookDetail = ({ book, open, onOpenChange, onBookmarkToggle }) => {
               )}
             </div>
 
-            <Separator className="bg-amber-300" />
+            <Separator className="bg-cyan-400" />
 
             {/* Subjects */}
             {book.subjects && book.subjects.length > 0 && (
               <div>
-                <h3 className="font-serif font-semibold text-amber-950 mb-2">Subjects</h3>
+                <h3 className="font-serif font-semibold text-cyan-950 mb-2">Subjects</h3>
                 <div className="flex flex-wrap gap-2">
                   {book.subjects.map((subject, idx) => (
                     <Badge
                       key={idx}
                       variant="outline"
-                      className="border-amber-400 text-amber-900 bg-amber-50"
+                      className="border-cyan-500 text-cyan-900 bg-cyan-50"
                     >
                       {subject}
                     </Badge>
@@ -140,12 +140,12 @@ const BookDetail = ({ book, open, onOpenChange, onBookmarkToggle }) => {
             {/* Bookshelves */}
             {book.bookshelves && book.bookshelves.length > 0 && (
               <div>
-                <h3 className="font-serif font-semibold text-amber-950 mb-2">Bookshelves</h3>
+                <h3 className="font-serif font-semibold text-cyan-950 mb-2">Bookshelves</h3>
                 <div className="flex flex-wrap gap-2">
                   {book.bookshelves.map((shelf, idx) => (
                     <Badge
                       key={idx}
-                      className="bg-amber-200 text-amber-950 hover:bg-amber-300"
+                      className="bg-cyan-200 text-cyan-950 hover:bg-cyan-300"
                     >
                       {shelf}
                     </Badge>
@@ -154,17 +154,17 @@ const BookDetail = ({ book, open, onOpenChange, onBookmarkToggle }) => {
               </div>
             )}
 
-            <Separator className="bg-amber-300" />
+            <Separator className="bg-cyan-400" />
 
             {/* Download Links */}
             <div>
-              <h3 className="font-serif font-semibold text-amber-950 mb-3">Download & Read</h3>
+              <h3 className="font-serif font-semibold text-cyan-950 mb-3">Download & Read</h3>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
                 {getDownloadLinks().map((format, idx) => (
                   <Button
                     key={idx}
                     variant="outline"
-                    className="justify-start border-amber-400 hover:bg-amber-200"
+                    className="justify-start border-cyan-500 hover:bg-cyan-200"
                     asChild
                   >
                     <a href={format.url} target="_blank" rel="noopener noreferrer">

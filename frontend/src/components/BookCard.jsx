@@ -29,26 +29,26 @@ const BookCard = ({ book, onBookmarkToggle, onViewDetails }) => {
   };
 
   return (
-    <Card className="h-full flex flex-col hover:shadow-xl transition-all duration-300 border-2 border-amber-200/50 bg-gradient-to-br from-amber-50/80 to-stone-100/80 cursor-pointer group">
+    <Card className="h-full flex flex-col hover:shadow-xl transition-all duration-300 border-2 border-cyan-300/50 bg-gradient-to-br from-cyan-50/80 to-blue-100/80 cursor-pointer group">
       <CardHeader className="pb-3">
         <div className="flex justify-between items-start gap-2">
-          <CardTitle className="text-lg font-serif leading-tight text-amber-950 group-hover:text-amber-800 transition-colors line-clamp-2">
+          <CardTitle className="text-lg font-serif leading-tight text-cyan-950 group-hover:text-cyan-800 transition-colors line-clamp-2">
             {book.title}
           </CardTitle>
           <Button
             variant="ghost"
             size="icon"
             onClick={handleBookmarkClick}
-            className="shrink-0 hover:bg-amber-200/50"
+            className="shrink-0 hover:bg-cyan-200/50"
           >
             {bookmarked ? (
-              <BookmarkCheck className="h-5 w-5 text-amber-700 fill-amber-700" />
+              <BookmarkCheck className="h-5 w-5 text-cyan-700 fill-cyan-700" />
             ) : (
-              <Bookmark className="h-5 w-5 text-amber-700" />
+              <Bookmark className="h-5 w-5 text-cyan-700" />
             )}
           </Button>
         </div>
-        <p className="text-sm text-amber-800/80 font-medium mt-1">{getAuthorNames()}</p>
+        <p className="text-sm text-cyan-800/80 font-medium mt-1">{getAuthorNames()}</p>
       </CardHeader>
 
       <CardContent className="flex-grow pb-3" onClick={() => onViewDetails && onViewDetails(book)}>
@@ -57,30 +57,30 @@ const BookCard = ({ book, onBookmarkToggle, onViewDetails }) => {
             <Badge
               key={idx}
               variant="secondary"
-              className="text-xs bg-amber-200/60 text-amber-900 hover:bg-amber-200"
+              className="text-xs bg-cyan-200/60 text-cyan-900 hover:bg-cyan-200"
             >
               {subject}
             </Badge>
           ))}
         </div>
 
-        <div className="flex items-center gap-4 text-xs text-amber-800/60">
+        <div className="flex items-center gap-4 text-xs text-cyan-800/60">
           <div className="flex items-center gap-1">
             <Download className="h-3.5 w-3.5" />
             <span>{book.download_count?.toLocaleString() || 0}</span>
           </div>
           {book.languages && book.languages.length > 0 && (
-            <Badge variant="outline" className="text-xs border-amber-300 text-amber-800">
+            <Badge variant="outline" className="text-xs border-cyan-400 text-cyan-800">
               {book.languages[0].toUpperCase()}
             </Badge>
           )}
         </div>
       </CardContent>
 
-      <CardFooter className="pt-3 border-t border-amber-200/50">
+      <CardFooter className="pt-3 border-t border-cyan-300/50">
         <Button
           variant="outline"
-          className="w-full bg-amber-100/50 border-amber-300 text-amber-900 hover:bg-amber-200 hover:text-amber-950"
+          className="w-full bg-cyan-100/50 border-cyan-400 text-cyan-900 hover:bg-cyan-200 hover:text-cyan-950"
           onClick={() => onViewDetails && onViewDetails(book)}
         >
           <BookOpen className="h-4 w-4 mr-2" />

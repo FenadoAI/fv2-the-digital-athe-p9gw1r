@@ -76,21 +76,21 @@ const LibraryPage = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-stone-900 via-amber-950 to-stone-900">
+    <div className="min-h-screen bg-gradient-to-br from-blue-950 via-cyan-900 to-teal-950">
       {/* Header */}
-      <header className="border-b border-amber-800/30 bg-stone-950/50 backdrop-blur sticky top-0 z-50">
+      <header className="border-b border-cyan-500/30 bg-blue-950/50 backdrop-blur sticky top-0 z-50">
         <div className="container mx-auto px-4 py-4">
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-4">
               <Button
                 variant="ghost"
                 onClick={() => navigate('/')}
-                className="text-amber-300 hover:text-amber-100 hover:bg-amber-900/30"
+                className="text-cyan-200 hover:text-cyan-50 hover:bg-cyan-900/40"
               >
                 <Home className="h-5 w-5 mr-2" />
                 Home
               </Button>
-              <div className="flex items-center gap-2 text-amber-300">
+              <div className="flex items-center gap-2 text-cyan-200">
                 <BookOpen className="h-6 w-6" />
                 <span className="font-serif text-xl hidden sm:inline">The Digital Athenaeum</span>
               </div>
@@ -99,7 +99,7 @@ const LibraryPage = () => {
             <Button
               variant="outline"
               onClick={() => navigate('/browse')}
-              className="border-amber-700 text-amber-300 hover:bg-amber-900/30"
+              className="border-cyan-400 text-cyan-200 hover:bg-cyan-900/40"
             >
               <Search className="h-5 w-5 mr-2" />
               Browse Books
@@ -112,12 +112,12 @@ const LibraryPage = () => {
         {/* Page Header */}
         <div className="mb-8">
           <div className="flex items-center gap-3 mb-4">
-            <div className="bg-amber-800/30 p-3 rounded-lg border-2 border-amber-700/50">
-              <LibraryIcon className="h-8 w-8 text-amber-400" />
+            <div className="bg-cyan-800/40 p-3 rounded-lg border-2 border-cyan-400/50">
+              <LibraryIcon className="h-8 w-8 text-cyan-300" />
             </div>
             <div>
-              <h1 className="text-4xl font-serif font-bold text-amber-100">My Library</h1>
-              <p className="text-amber-200/70 mt-1">
+              <h1 className="text-4xl font-serif font-bold text-cyan-50">My Library</h1>
+              <p className="text-cyan-100/70 mt-1">
                 {bookmarks.length} {bookmarks.length === 1 ? 'book' : 'books'} in your collection
               </p>
             </div>
@@ -125,7 +125,7 @@ const LibraryPage = () => {
 
           {/* Search and Actions */}
           {bookmarks.length > 0 && (
-            <Card className="bg-amber-900/20 border-2 border-amber-700/30 backdrop-blur">
+            <Card className="bg-cyan-900/30 border-2 border-cyan-500/30 backdrop-blur">
               <CardContent className="pt-6">
                 <div className="flex flex-col sm:flex-row gap-4">
                   <div className="flex-grow">
@@ -133,13 +133,13 @@ const LibraryPage = () => {
                       placeholder="Search your library..."
                       value={searchTerm}
                       onChange={(e) => setSearchTerm(e.target.value)}
-                      className="bg-stone-900/50 border-amber-700/50 text-amber-100 placeholder:text-amber-400/50"
+                      className="bg-blue-950/50 border-cyan-500/50 text-cyan-50 placeholder:text-cyan-300/50"
                     />
                   </div>
                   <Button
                     variant="outline"
                     onClick={() => setClearDialogOpen(true)}
-                    className="border-red-700 text-red-300 hover:bg-red-900/30"
+                    className="border-red-500 text-red-300 hover:bg-red-900/40"
                   >
                     <Trash2 className="h-4 w-4 mr-2" />
                     Clear All
@@ -152,15 +152,15 @@ const LibraryPage = () => {
 
         {/* Books Grid */}
         {bookmarks.length === 0 ? (
-          <Card className="p-16 text-center bg-amber-900/20 border-2 border-amber-700/30">
-            <LibraryIcon className="h-20 w-20 text-amber-400 mx-auto mb-6 opacity-50" />
-            <h3 className="text-2xl font-serif text-amber-100 mb-3">Your library is empty</h3>
-            <p className="text-amber-200/70 mb-6 max-w-md mx-auto">
+          <Card className="p-16 text-center bg-cyan-900/30 border-2 border-cyan-500/30">
+            <LibraryIcon className="h-20 w-20 text-cyan-300 mx-auto mb-6 opacity-50" />
+            <h3 className="text-2xl font-serif text-cyan-50 mb-3">Your library is empty</h3>
+            <p className="text-cyan-100/70 mb-6 max-w-md mx-auto">
               Start exploring our collection and bookmark your favorite books to build your personal library
             </p>
             <Button
               onClick={() => navigate('/browse')}
-              className="bg-amber-700 hover:bg-amber-800 text-white px-8"
+              className="bg-cyan-600 hover:bg-cyan-700 text-white px-8"
             >
               <Search className="h-5 w-5 mr-2" />
               Browse Books
@@ -178,14 +178,14 @@ const LibraryPage = () => {
             ))}
           </div>
         ) : (
-          <Card className="p-12 text-center bg-amber-900/20 border-2 border-amber-700/30">
-            <Search className="h-16 w-16 text-amber-400 mx-auto mb-4 opacity-50" />
-            <h3 className="text-xl font-serif text-amber-100 mb-2">No books found</h3>
-            <p className="text-amber-200/70">No books match your search criteria</p>
+          <Card className="p-12 text-center bg-cyan-900/30 border-2 border-cyan-500/30">
+            <Search className="h-16 w-16 text-cyan-300 mx-auto mb-4 opacity-50" />
+            <h3 className="text-xl font-serif text-cyan-50 mb-2">No books found</h3>
+            <p className="text-cyan-100/70">No books match your search criteria</p>
             <Button
               variant="ghost"
               onClick={() => setSearchTerm('')}
-              className="mt-4 text-amber-300 hover:text-amber-100"
+              className="mt-4 text-cyan-200 hover:text-cyan-50"
             >
               Clear search
             </Button>
@@ -203,15 +203,15 @@ const LibraryPage = () => {
 
       {/* Clear All Confirmation Dialog */}
       <AlertDialog open={clearDialogOpen} onOpenChange={setClearDialogOpen}>
-        <AlertDialogContent className="bg-stone-900 border-2 border-amber-700">
+        <AlertDialogContent className="bg-blue-950 border-2 border-cyan-500">
           <AlertDialogHeader>
-            <AlertDialogTitle className="text-amber-100 font-serif">Clear All Bookmarks?</AlertDialogTitle>
-            <AlertDialogDescription className="text-amber-200/70">
+            <AlertDialogTitle className="text-cyan-50 font-serif">Clear All Bookmarks?</AlertDialogTitle>
+            <AlertDialogDescription className="text-cyan-100/70">
               This will permanently remove all {bookmarks.length} books from your library. This action cannot be undone.
             </AlertDialogDescription>
           </AlertDialogHeader>
           <AlertDialogFooter>
-            <AlertDialogCancel className="border-amber-700 text-amber-300 hover:bg-amber-900/30">
+            <AlertDialogCancel className="border-cyan-400 text-cyan-200 hover:bg-cyan-900/40">
               Cancel
             </AlertDialogCancel>
             <AlertDialogAction

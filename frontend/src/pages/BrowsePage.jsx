@@ -92,21 +92,21 @@ const BrowsePage = () => {
   const totalPages = Math.ceil(totalCount / 32); // Gutendex returns ~32 books per page
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-stone-900 via-amber-950 to-stone-900">
+    <div className="min-h-screen bg-gradient-to-br from-blue-950 via-cyan-900 to-teal-950">
       {/* Header */}
-      <header className="border-b border-amber-800/30 bg-stone-950/50 backdrop-blur sticky top-0 z-50">
+      <header className="border-b border-cyan-500/30 bg-blue-950/50 backdrop-blur sticky top-0 z-50">
         <div className="container mx-auto px-4 py-4">
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-4">
               <Button
                 variant="ghost"
                 onClick={() => navigate('/')}
-                className="text-amber-300 hover:text-amber-100 hover:bg-amber-900/30"
+                className="text-cyan-200 hover:text-cyan-50 hover:bg-cyan-900/40"
               >
                 <Home className="h-5 w-5 mr-2" />
                 Home
               </Button>
-              <div className="flex items-center gap-2 text-amber-300">
+              <div className="flex items-center gap-2 text-cyan-200">
                 <BookOpen className="h-6 w-6" />
                 <span className="font-serif text-xl hidden sm:inline">The Digital Athenaeum</span>
               </div>
@@ -116,7 +116,7 @@ const BrowsePage = () => {
               <Button
                 variant="outline"
                 onClick={() => navigate('/library')}
-                className="border-amber-700 text-amber-300 hover:bg-amber-900/30"
+                className="border-cyan-400 text-cyan-200 hover:bg-cyan-900/40"
               >
                 <Library className="h-5 w-5 mr-2" />
                 My Library ({bookmarkCount})
@@ -128,7 +128,7 @@ const BrowsePage = () => {
 
       <div className="container mx-auto px-4 py-8">
         {/* Search and Filters */}
-        <Card className="mb-8 bg-amber-900/20 border-2 border-amber-700/30 backdrop-blur">
+        <Card className="mb-8 bg-cyan-900/30 border-2 border-cyan-500/30 backdrop-blur">
           <CardContent className="pt-6">
             <form onSubmit={handleSearch} className="space-y-4">
               <div className="flex gap-2">
@@ -137,10 +137,10 @@ const BrowsePage = () => {
                     placeholder="Search by title or author..."
                     value={searchTerm}
                     onChange={(e) => setSearchTerm(e.target.value)}
-                    className="bg-stone-900/50 border-amber-700/50 text-amber-100 placeholder:text-amber-400/50"
+                    className="bg-blue-950/50 border-cyan-500/50 text-cyan-50 placeholder:text-cyan-300/50"
                   />
                 </div>
-                <Button type="submit" className="bg-amber-700 hover:bg-amber-800">
+                <Button type="submit" className="bg-cyan-600 hover:bg-cyan-700">
                   <Search className="h-4 w-4 mr-2" />
                   Search
                 </Button>
@@ -148,12 +148,12 @@ const BrowsePage = () => {
 
               <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
                 <div>
-                  <Label className="text-amber-200 mb-2 block">Topic</Label>
+                  <Label className="text-cyan-100 mb-2 block">Topic</Label>
                   <Select value={topic} onValueChange={setTopic}>
-                    <SelectTrigger className="bg-stone-900/50 border-amber-700/50 text-amber-100">
+                    <SelectTrigger className="bg-blue-950/50 border-cyan-500/50 text-cyan-50">
                       <SelectValue placeholder="All Topics" />
                     </SelectTrigger>
-                    <SelectContent className="bg-stone-900 border-amber-700">
+                    <SelectContent className="bg-blue-950 border-cyan-500">
                       <SelectItem value="">All Topics</SelectItem>
                       <SelectItem value="Fiction">Fiction</SelectItem>
                       <SelectItem value="Science Fiction">Science Fiction</SelectItem>
@@ -172,24 +172,24 @@ const BrowsePage = () => {
                 </div>
 
                 <div>
-                  <Label className="text-amber-200 mb-2 block">Author Birth Year (From)</Label>
+                  <Label className="text-cyan-100 mb-2 block">Author Birth Year (From)</Label>
                   <Input
                     type="number"
                     placeholder="e.g., 1800"
                     value={authorYearStart}
                     onChange={(e) => setAuthorYearStart(e.target.value)}
-                    className="bg-stone-900/50 border-amber-700/50 text-amber-100 placeholder:text-amber-400/50"
+                    className="bg-blue-950/50 border-cyan-500/50 text-cyan-50 placeholder:text-cyan-300/50"
                   />
                 </div>
 
                 <div>
-                  <Label className="text-amber-200 mb-2 block">Author Birth Year (To)</Label>
+                  <Label className="text-cyan-100 mb-2 block">Author Birth Year (To)</Label>
                   <Input
                     type="number"
                     placeholder="e.g., 1900"
                     value={authorYearEnd}
                     onChange={(e) => setAuthorYearEnd(e.target.value)}
-                    className="bg-stone-900/50 border-amber-700/50 text-amber-100 placeholder:text-amber-400/50"
+                    className="bg-blue-950/50 border-cyan-500/50 text-cyan-50 placeholder:text-cyan-300/50"
                   />
                 </div>
               </div>
@@ -199,7 +199,7 @@ const BrowsePage = () => {
                   type="button"
                   variant="outline"
                   onClick={handleClearFilters}
-                  className="border-amber-700 text-amber-300 hover:bg-amber-900/30"
+                  className="border-cyan-400 text-cyan-200 hover:bg-cyan-900/40"
                 >
                   Clear Filters
                 </Button>
@@ -210,11 +210,11 @@ const BrowsePage = () => {
 
         {/* Results Info */}
         <div className="flex items-center justify-between mb-6">
-          <p className="text-amber-200">
+          <p className="text-cyan-100">
             {loading ? 'Loading...' : `${totalCount.toLocaleString()} books found`}
           </p>
           {totalPages > 1 && (
-            <p className="text-amber-200/70 text-sm">
+            <p className="text-cyan-100/70 text-sm">
               Page {currentPage} of {totalPages.toLocaleString()}
             </p>
           )}
@@ -224,7 +224,7 @@ const BrowsePage = () => {
         {loading ? (
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
             {[...Array(8)].map((_, idx) => (
-              <div key={idx} className="h-80 bg-amber-900/20 border-2 border-amber-700/30 rounded-lg animate-pulse"></div>
+              <div key={idx} className="h-80 bg-cyan-900/30 border-2 border-cyan-500/30 rounded-lg animate-pulse"></div>
             ))}
           </div>
         ) : books.length > 0 ? (
@@ -239,10 +239,10 @@ const BrowsePage = () => {
             ))}
           </div>
         ) : (
-          <Card className="p-12 text-center bg-amber-900/20 border-2 border-amber-700/30">
-            <BookOpen className="h-16 w-16 text-amber-400 mx-auto mb-4 opacity-50" />
-            <h3 className="text-xl font-serif text-amber-100 mb-2">No books found</h3>
-            <p className="text-amber-200/70">Try adjusting your search or filters</p>
+          <Card className="p-12 text-center bg-cyan-900/30 border-2 border-cyan-500/30">
+            <BookOpen className="h-16 w-16 text-cyan-300 mx-auto mb-4 opacity-50" />
+            <h3 className="text-xl font-serif text-cyan-50 mb-2">No books found</h3>
+            <p className="text-cyan-100/70">Try adjusting your search or filters</p>
           </Card>
         )}
 
@@ -253,7 +253,7 @@ const BrowsePage = () => {
               variant="outline"
               disabled={!hasPrevious || loading}
               onClick={() => setCurrentPage(p => p - 1)}
-              className="border-amber-700 text-amber-300 hover:bg-amber-900/30 disabled:opacity-50"
+              className="border-cyan-400 text-cyan-200 hover:bg-cyan-900/40 disabled:opacity-50"
             >
               <ChevronLeft className="h-4 w-4 mr-2" />
               Previous
@@ -263,7 +263,7 @@ const BrowsePage = () => {
               variant="outline"
               disabled={!hasNext || loading}
               onClick={() => setCurrentPage(p => p + 1)}
-              className="border-amber-700 text-amber-300 hover:bg-amber-900/30 disabled:opacity-50"
+              className="border-cyan-400 text-cyan-200 hover:bg-cyan-900/40 disabled:opacity-50"
             >
               Next
               <ChevronRight className="h-4 w-4 ml-2" />
